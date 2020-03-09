@@ -11,7 +11,7 @@ protected:
 public:
     SunRotation(long double t0, long double t1, long double SamplingIncrement);
     TVector getRight( const TVector& X, long double t) override;
-    void getInitialPosition(long double theta,long double i,long double w,long double a,long double e,long double O);
+    void setInitialPosition(long double theta,long double i,long double w,long double a,long double e,long double O);
 };
 
 

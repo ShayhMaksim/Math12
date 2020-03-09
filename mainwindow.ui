@@ -131,6 +131,16 @@
       <string>Earth-Moon</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Sun-Earth</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sun-Moon</string>
+     </property>
+    </item>
    </widget>
    <widget class="QChartView" name="graphicsView">
     <property name="geometry">

@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     E_M=new SunRotation(0,50000,1);
 
-    E_M->getInitialPosition(0,0,0,10000000,0,0);
+    E_M->setInitialPosition(0,0,0,10000000,0,0);
     ui->progressBar->setRange(0,100);
     ui->progressBar->setValue((float)E_M->getT0()/E_M->getT1()*100);
 
@@ -31,13 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
         delete integrator2;
     }));
 
-
     thread_1.get();
     thread_2.get();
 
-
     ui->graphicsView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
 
 }
 
@@ -58,7 +55,7 @@ void MainWindow::on_pushButton_2_clicked()
         {
             delete E_M;
              E_M=new SunRotation(0,ui->lineEdit->text().toDouble()*86400,1);
-             E_M->getInitialPosition(0,0,0,10000000,0,0);
+             E_M->setInitialPosition(0,0,0,10000000,0,0);
 
             thread_1=std::async (std::launch::async, ([&](){
                 TIntegrator * integrator=new TDormandPrince();
@@ -67,7 +64,9 @@ void MainWindow::on_pushButton_2_clicked()
                 delete integrator;
             }));
         }
-        else if(ui->comboBox_3->currentText()=="Earth-Moon")
+        else if((ui->comboBox_3->currentText()=="Earth-Moon")
+                ||(ui->comboBox_3->currentText()=="Sun-Earth")
+                ||(ui->comboBox_3->currentText()=="Sun-Moon"))
         {
             delete E_S;
             E_S=new ModelEMS(0,ui->lineEdit->text().toDouble(),0.0018);
@@ -109,7 +108,9 @@ void MainWindow::on_pushButton_2_clicked()
         {
               thread_1.get();
         }
-        else if(ui->comboBox_3->currentText()=="Earth-Moon")
+        else if((ui->comboBox_3->currentText()=="Earth-Moon")
+                ||(ui->comboBox_3->currentText()=="Sun-Earth")
+                ||(ui->comboBox_3->currentText()=="Sun-Moon"))
         {
               thread_2.get();
         }
@@ -146,6 +147,42 @@ void MainWindow::on_pushButton_2_clicked()
                             ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
                     }
                 }
+    } else if (ui->comboBox_3->currentText()=="Sun-Earth"){
+        Result=E_S->getResult();
+        for (int i=0;i<Result.GetRowCount();i++)
+                {
+                    if (first==0){
+                      *series<<QPointF((Result(i,first))*E_S->a,(Result(i,second+3)-Result(i,second+6))*E_S->a);
+                       ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
+                    }
+                    else if (second==0)
+                    {
+                          *series<<QPointF((Result(i,first+3)-Result(i,first+6))*E_S->a,(Result(i,second))*E_S->a);
+                            ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
+                    }
+                    else {
+                    *series<<QPointF((Result(i,first+3)-Result(i,first+6))*E_S->a,(Result(i,second+3)-Result(i,second+6))*E_S->a);
+                            ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
+                    }
+                }
+    } else if(ui->comboBox_3->currentText()=="Sun-Moon"){
+            Result=E_S->getResult();
+             for (int i=0;i<Result.GetRowCount();i++)
+                     {
+                         if (first==0){
+                           *series<<QPointF((Result(i,first))*E_S->a,(Result(i,second)-Result(i,second+6))*E_S->a);
+                            ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
+                         }
+                         else if (second==0)
+                         {
+                               *series<<QPointF((Result(i,first)-Result(i,first+6))*E_S->a,(Result(i,second))*E_S->a);
+                                 ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
+                         }
+                         else {
+                         *series<<QPointF((Result(i,first)-Result(i,first+6))*E_S->a,(Result(i,second)-Result(i,second+6))*E_S->a);
+                                 ui->progressBar->setValue(10+70*(double)i/Result.GetRowCount());
+                         }
+                     }
     }
     ui->progressBar->setValue(80);
     //создаем график и добавляем в него синусоиду

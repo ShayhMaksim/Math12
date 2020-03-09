@@ -23,7 +23,7 @@ TVector SunRotation::getRight(const TVector& X, long double t)
 }
 
 
-void SunRotation::getInitialPosition(long double theta, long double i, long double w, long double a, long double e, long double O)
+void SunRotation::setInitialPosition(long double theta, long double i, long double w, long double a, long double e, long double O)
 {
     long double p=a*(1-e*e);
     TVector r_(3);

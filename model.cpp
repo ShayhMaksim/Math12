@@ -14,7 +14,6 @@ void TModel::addResult( const TVector& X, long double& t )
 	Result(N, 0) = t;
 	for (int i = X.GetSize(); i>0; i--)
 		Result(N, i) = X[i-1];
-
 	N++;
 }
 
