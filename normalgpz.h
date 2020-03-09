@@ -1,8 +1,8 @@
 #ifndef NORMALGPZ_H
 #define NORMALGPZ_H
-#include "sunrotation.h"
+#include "Sattelite.h"
 #include <QVector>
-class NormalGPZ : public SunRotation
+class NormalGPZ : public Sattelite
 {
 protected:
 

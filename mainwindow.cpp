@@ -10,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     E_S=new ModelEMS(0,1,0.0018);
 
-    E_M=new SunRotation(0,50000,1);
+    E_M=new NormalGPZ(0,50000,1);
 
-    E_M->setInitialPosition(0,0,0,10000000,0,0);
+    E_M->setInitialPosition(0,M_PI_4,0,10000000,0,0);
     ui->progressBar->setRange(0,100);
     ui->progressBar->setValue((float)E_M->getT0()/E_M->getT1()*100);
 
@@ -54,8 +54,8 @@ void MainWindow::on_pushButton_2_clicked()
         if(ui->comboBox_3->currentText()=="Earth-Sattelite")
         {
             delete E_M;
-             E_M=new SunRotation(0,ui->lineEdit->text().toDouble()*86400,1);
-             E_M->setInitialPosition(0,0,0,10000000,0,0);
+             E_M=new NormalGPZ(0,ui->lineEdit->text().toDouble()*86400,1);
+             E_M->setInitialPosition(0,M_PI_4,0,10000000,0,0);
 
             thread_1=std::async (std::launch::async, ([&](){
                 TIntegrator * integrator=new TDormandPrince();

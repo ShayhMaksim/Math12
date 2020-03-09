@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     MyLinearAlgebra.cpp \
+    Sattelite.cpp \
     abnormalgz.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,19 +25,18 @@ SOURCES += \
     modelems.cpp \
     normalgpz.cpp \
     spaceformule.cpp \
-    sundial.cpp \
-    sunrotation.cpp
+    sundial.cpp
 
 HEADERS += \
     MyLinearAlgebra.h \
+    Sattelite.h \
     abnormalgpz.h \
     mainwindow.h \
     model.h \
     modelems.h \
     normalgpz.h \
     spaceformule.h \
-    sundial.h \
-    sunrotation.h
+    sundial.h
 
 FORMS += \
     mainwindow.ui

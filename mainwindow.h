@@ -9,8 +9,9 @@
 #include <QChartView>
 #include <thread>
 #include "sundial.h"
-#include "sunrotation.h"
+#include "Sattelite.h"
 #include "modelems.h"
+#include "normalgpz.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -33,7 +34,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     ModelEMS * E_S;
-    SunRotation * E_M;
+    NormalGPZ * E_M;
 };
 
 #endif // MAINWINDOW_H

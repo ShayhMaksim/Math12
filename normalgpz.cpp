@@ -1,6 +1,6 @@
 #include "normalgpz.h"
 
-NormalGPZ::NormalGPZ(long double t0, long double t1, long double SamplingIncrement): SunRotation (t0,t1,SamplingIncrement)
+NormalGPZ::NormalGPZ(long double t0, long double t1, long double SamplingIncrement): Sattelite (t0,t1,SamplingIncrement)
 {
 
 }
