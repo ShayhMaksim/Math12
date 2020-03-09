@@ -102,7 +102,7 @@ void TDormandPrince::Run(TModel* Model)
         double e1=0;
         for(int i=0;i<X.GetSize();i++)
         {
-            long double max1[4]{(0.00001) , abs(X1[i]), abs(X[i]) , 0.25*u/Eps};
+            long double max1[4]{(0.00001) , abs(X1[i]), abs(X[i]) , 0.5*u/Eps};
         	long double a=max1[0];
 
         	for(int j=0;j<4;j++)

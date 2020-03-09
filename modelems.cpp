@@ -52,9 +52,27 @@ ModelEMS::ModelEMS(long double t0, long double t1, long double SamplingIncrement
 
 TVector ModelEMS::getRight( const TVector& X, long double t)
 {
-    TVector r12=X.Concat(3,6)-X.Concat(0,3);
-    TVector r13=X.Concat(6,9)-X.Concat(0,3);
-    TVector r23=X.Concat(6,9)-X.Concat(3,6);
+    TVector r12=X.Concat(3,5)-X.Concat(0,2);
+    TVector r13=X.Concat(6,8)-X.Concat(0,2);
+    TVector r23=X.Concat(6,8)-X.Concat(3,5);
+
+//    TVector X1(3),X2(3),X3(3);
+
+//    X1[0]=X[0];
+//    X1[1]=X[1];
+//    X1[2]=X[2];
+
+//    X2[0]=X[3];
+//    X2[1]=X[4];
+//    X2[2]=X[5];
+
+//    X3[0]=X[6];
+//    X3[1]=X[7];
+//    X3[2]=X[8];
+
+//    TVector r12=X2-X1;
+//    TVector r13=X3-X1;
+//    TVector r23=X3-X2;
 
     TVector Y(18);
     for(int i=0;i<9;i++){
