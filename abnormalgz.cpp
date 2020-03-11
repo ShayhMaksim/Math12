@@ -1,6 +1,9 @@
 #include "abnormalgpz.h"
 
-AbnormalGPZ::AbnormalGPZ(long double t0, long double t1, long double SamplingIncrement):NormalGPZ (t0,t1,SamplingIncrement)
+AbnormalGPZ::AbnormalGPZ(long double t0, long double t1, long double SamplingIncrement,
+                         long double theta,long double i,long double w,long double a,long double e,long double O):
+    NormalGPZ (t0, t1, SamplingIncrement,
+                theta, i, w, a, e, O)
 {
     std::string line;
     std::ifstream in("InitParam.txt");

@@ -1,11 +1,13 @@
 #include "Sattelite.h"
 
 
-Sattelite::Sattelite(long double t0, long double t1, long double SamplingIncrement): TModel()
+Sattelite::Sattelite(long double t0, long double t1, long double SamplingIncrement,
+                     long double theta,long double i,long double w,long double a,long double e,long double O): TModel()
 {
     this->t0=t0;
     this->t1=t1;
     this->SamplingIncrement=SamplingIncrement;
+    this->setInitialPosition(theta,i,w,a,e,O);
 }
 
 TVector Sattelite::getRight(const TVector& X, long double t)

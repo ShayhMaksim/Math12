@@ -14,7 +14,8 @@ class AbnormalGPZ : public NormalGPZ
 {
     Element arg[60];
 public:
-    AbnormalGPZ(long double t0, long double t1, long double SamplingIncrement0);
+    AbnormalGPZ(long double t0, long double t1, long double SamplingIncrement,
+                long double theta,long double i,long double w,long double a,long double e,long double O);
     TVector getRight( const TVector& X, long double t);
 };
 

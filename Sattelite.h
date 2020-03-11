@@ -9,7 +9,7 @@ class Sattelite : public TModel
 protected:
      const double mu_s = 398600.436e+9;
 public:
-    Sattelite(long double t0, long double t1, long double SamplingIncrement);
+    Sattelite(long double t0, long double t1, long double SamplingIncrement,long double theta,long double i,long double w,long double a,long double e,long double O);
     TVector getRight( const TVector& X, long double t) override;
     void setInitialPosition(long double theta,long double i,long double w,long double a,long double e,long double O);
 };

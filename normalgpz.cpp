@@ -1,6 +1,8 @@
 #include "normalgpz.h"
 
-NormalGPZ::NormalGPZ(long double t0, long double t1, long double SamplingIncrement): Sattelite (t0,t1,SamplingIncrement)
+NormalGPZ::NormalGPZ(long double t0, long double t1, long double SamplingIncrement,
+                     long double theta,long double i,long double w,long double a,long double e,long double O):
+    Sattelite (t0,t1,SamplingIncrement,theta,i,w,a,e,O)
 {
 
 }

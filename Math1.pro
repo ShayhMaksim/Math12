@@ -19,24 +19,24 @@ SOURCES += \
     MyLinearAlgebra.cpp \
     Sattelite.cpp \
     abnormalgz.cpp \
+    adecorator.cpp \
     main.cpp \
     mainwindow.cpp \
     model.cpp \
     modelems.cpp \
     normalgpz.cpp \
-    spaceformule.cpp \
-    sundial.cpp
+    spaceformule.cpp
 
 HEADERS += \
     MyLinearAlgebra.h \
     Sattelite.h \
     abnormalgpz.h \
+    adecorator.h \
     mainwindow.h \
     model.h \
     modelems.h \
     normalgpz.h \
-    spaceformule.h \
-    sundial.h
+    spaceformule.h
 
 FORMS += \
     mainwindow.ui

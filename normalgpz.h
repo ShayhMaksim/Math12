@@ -11,7 +11,8 @@ protected:
 
 public:
     QVector<double> arguments[3];
-    NormalGPZ(long double t0, long double t1, long double SamplingIncrement);
+    NormalGPZ(long double t0, long double t1, long double SamplingIncrement,
+              long double theta,long double i,long double w,long double a,long double e,long double O);
     TVector getRight( const TVector& X, long double t);
     long double J0(int n);
     long double  C0N0(int n);
